@@ -1,0 +1,19 @@
+{
+  "name": "rc-nepali-calendar-lib",
+  "version": "1.0.0",
+  "keywords": [
+    "nepali",
+    "calendar",
+    "datepicker",
+    "bs"
+  ],
+  "author": "arunpdl",
+  "license": "ISC",
+  "private": true,
+  "workspaces": {
+    "packages": [
+      "packages/*",
+      "sites/*"
+    ]
+  }
+}
