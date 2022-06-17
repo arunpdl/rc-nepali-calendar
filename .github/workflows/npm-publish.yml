@@ -4,29 +4,29 @@
 name: Publish to npm
 
 on:
-  push:
+  workflow_dispatch:
     branches: [master]
     types: [created]
     paths:
-      - 'packages/*'
+      - "packages/*"
 
 defaults:
- run:
+  run:
     working-directory: packages/rc-nepali-calendar
-    
+
 jobs:
   publish:
     runs-on: ubuntu-latest
-    
+
     steps:
-    - uses: actions/checkout@v2
-    - uses: actions/setup-node@v3
-      with:
-          node-version: '16.x'
-          registry-url: 'https://registry.npmjs.org'
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v3
+        with:
+          node-version: "16.x"
+          registry-url: "https://registry.npmjs.org"
           # Defaults to the user or organization that owns the workflow file
-          scope: '@octocat'
-    - run: yarn
-    - run: yarn publish
-      env:
-        NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          scope: "@octocat"
+      - run: yarn
+      - run: yarn publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
